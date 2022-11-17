@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg,rgb(241, 152, 241),rgb(136, 136, 248), rgb(137, 137, 185) 73%);
+    overflow: hidden;
+}
+
+canvas {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 640px){
+    body{
+        max-width: 100%;
+        max-height: 100%;
+        overflow: visible;
+    }
+    canvas{
+        max-width: 100%; 
+    }
+}
