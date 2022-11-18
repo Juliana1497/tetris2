@@ -53,7 +53,7 @@
         }
 
         function dibuajarPuntaje() {//Se crea la función para progrmar el puntaje obtenido en el juego
-            push()//Añade los elementos del contador, es decir los numeros y devuelve el numevo numero que se va sumando a medida que se va puntuando
+            push()//Guarda estados graficos. Añade los elementos del contador, es decir los numeros y devuelve el numevo numero que se va sumando a medida que se va puntuando
             textSize(20)//Se define el tamaño de la letra
             fill("black")//Se define el color de la letra como negro
             text(//El puntaje sera dado por la palabra Lineas: más las lineas que va completando el jugador
@@ -61,7 +61,7 @@
                 tablero.posición.x,
                 tablero.posición.y - tablero.lado_celda / 2//Se ubica el puntaje encima del tablero en la esquina superior izquierda
             )
-            pop()//Se elimina el numero del contador para que cuando el tablero se reinicie se elimine el ultimo numero de puntaje que haya echo el jugador
+            pop()//Restaura el estado de grafico.Se elimina el numero del contador para que cuando el tablero se reinicie se elimine el ultimo numero de puntaje que haya echo el jugador
         }
 
         let límite_regulador_velocidad_teclas = 100//Se determina el limite de velocidad en el que se movera la figura al oprimir una tecla
