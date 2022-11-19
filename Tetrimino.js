@@ -142,21 +142,21 @@ class Tetrimino {//Se define la clase para representar los teriminos de manera a
 
   static dibujarMino(pmino) {
     rect(pmino.x, pmino.y, tablero.lado_celda);
-    push();
-    noStroke();
-    fill(255, 255, 255, 80);
-    beginShape();
-    vertex(pmino.x, pmino.y);
-    vertex(pmino.x + tablero.lado_celda, pmino.y);
-    vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
-    endShape(CLOSE);
-    beginShape();
-    fill(0, 0, 0, 80);
-    vertex(pmino.x, pmino.y);
-    vertex(pmino.x, pmino.y + tablero.lado_celda);
-    vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
-    endShape(CLOSE);
-    pop();
+    // push();
+    // noStroke();
+    // fill(255, 255, 255, 80);
+    // beginShape();
+    // vertex(pmino.x, pmino.y);
+    // vertex(pmino.x + tablero.lado_celda, pmino.y);
+    // vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
+    // endShape(CLOSE);
+    // beginShape();
+    // fill(0, 0, 0, 80);
+    // vertex(pmino.x, pmino.y);
+    // vertex(pmino.x, pmino.y + tablero.lado_celda);
+    // vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
+    // endShape(CLOSE);
+    // pop();
   }
 }
 

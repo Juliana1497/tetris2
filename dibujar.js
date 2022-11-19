@@ -57,7 +57,7 @@ function dibuajarPuntaje() {//Se crea la función para progrmar el puntaje obten
     textSize(20)//Se define el tamaño de la letra
     fill("black")//Se define el color de la letra como negro
     text(//El puntaje sera dado por la palabra Lineas: más las lineas que va completando el jugador
-        "Líneas: " + lineas_hechas,
+        "Líneas hechas: " + lineas_hechas,
         tablero.posición.x,
         tablero.posición.y - tablero.lado_celda / 2//Se ubica el puntaje encima del tablero en la esquina superior izquierda
     )
