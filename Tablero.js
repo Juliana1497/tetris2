@@ -4,7 +4,7 @@ empieza por una T mayúscula para identificar que es una clase y no una variable
 */
 class Tablero {
   constructor() { //Se declara el constructor de la clase Tablero en este encontraremos todas la variables o partes que lo componen
-    this.columnas = 25; //Numero de filas
+    this.columnas = 23; //Numero de filas
     this.filas = 23; //Numero de columnas
     this.lado_celda = 25; //Lado de la celda
     this.ancho = this.columnas * this.lado_celda; //Ancho del tablero
