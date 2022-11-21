@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tetris Javascript</title>
+    <title>Tetris</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script><!--Se referencia la libreria p5 de JavaScript para usarla en el script-->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300&family=Rubik+Marker+Hatch&display=swap" rel="stylesheet">
@@ -13,11 +13,28 @@
 <body>
     <section class="title">
         <h1>Bienvenido a tu juego!<br>TETRIS</h1>
-        <div class="pun">
+        <h2>Como jugar?</h2>
+        <br>
+        <ul class="punta">
+            <li>&#8592 &nbsp; te permite mover el Tetrimino (figura) hacia la izquierda del tablero</li>
+            <br>
+            <li>&#8594 &nbsp; te permite mover el Tetrimino (figura) hacia la derecha del tablero</li>
+            <br>
+            <li>&#8595 &nbsp; te permite mover el Tetrimino (figura) hacia abajo, un poco más rapido a la caida normal que ya tiene adjudicada</li>
+            <br>
+            <li>&#8593 &nbsp; te permite girar el Tetrimino (figura) en busca de la posición perfecta</li>
+            <br>
+            <li>La tecla 'espacio', &nbsp; hace que tu Tetrimino baje automaticamente</li>
+            <br>
+            <li>La tecla 'enter',&nbsp;pausa tu juego para que puedas continuar disfrutando cuando desees</li>
+            <br>
+        </ul>
+        <!--<div class="pun">
             <button onclick="keyEventsTetris()" id="izquierda"><b>&#8592</b></button>
             <button onclick="keyEventsTetris()" id="abajo"><b>&#8595</b></button>
             <button onclick="keyEventsTetris()" id="derecha"><b>&#8594</b></button>
-        </div>
+        </div>-->
+
     </section>
     <script src="Tablero.js"></script>
     <script src="Tetrimino.js"></script>
