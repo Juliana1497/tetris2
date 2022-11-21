@@ -8,11 +8,49 @@ body {
     background: linear-gradient(90deg,rgb(241, 152, 241),rgb(136, 136, 248), rgb(137, 137, 185) 73%);
     overflow: hidden;
 }
-
-canvas {
-    margin-top: 20px;
+h1{
+    font-size: 3 rem;
+    text-align: center;
+    font-weight:bold;
+    font-family: 'Rubik Marker Hatch', cursive;
+    text-shadow: 2px 5px "#999";
+    color: #660066;
 }
 
+.pun{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(autofill, autofit);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(autofill, autofit);
+    row-gap: 2px;
+    column-gap: 2px;
+    padding: 50px;
+}
+
+#izquierda{
+    grid-area: 1 / 1 / 2 / 2;
+    margin-left: 10px;
+}
+#abajo{
+    grid-area: 2 / 1 / 3 / 3;
+    margin: 0px 40px;
+    padding: 15px 0px;
+}
+#derecha{
+    grid-area: 1 / 2 / 2 / 3;
+    margin-right: 10px;
+}
+button{
+    border-radius: 10px;
+    border: 1px solid #572364;
+    background-color: #B695C0;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #660066;
+    border: 1px solid #572364;
+}
 @media (max-width: 640px){
     body{
         max-width: 100%;
@@ -21,5 +59,6 @@ canvas {
     }
     canvas{
         max-width: 100%; 
+        max-height: 70vh;
     }
 }

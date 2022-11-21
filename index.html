@@ -6,9 +6,19 @@
     <title>Tetris Javascript</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script><!--Se referencia la libreria p5 de JavaScript para usarla en el script-->
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300&family=Rubik+Marker+Hatch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <section class="title">
+        <h1>Bienvenido a tu juego!<br>TETRIS</h1>
+        <div class="pun">
+            <button onclick="keyEventsTetris()" id="izquierda"><b>&#8592</b></button>
+            <button onclick="keyEventsTetris()" id="abajo"><b>&#8595</b></button>
+            <button onclick="keyEventsTetris()" id="derecha"><b>&#8594</b></button>
+        </div>
+    </section>
     <script src="Tablero.js"></script>
     <script src="Tetrimino.js"></script>
     <script src="dibujar.js"></script>
