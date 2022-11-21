@@ -2,9 +2,10 @@ const MARGEN_TABLERO = 15 //Se crea una variable para darle margen al tablero
 let regulador_velocidad_teclas = 0 //Se crea la variable para regular la velocidad del movimiento de las figuras y se inicializa en 0
 let regulador_de_caida = 0//Se crea la variable regulador de caida de la pieza
 let lineas_hechas = 0//Se crea la variable para hacer la puntuación del juego y que cada vez que se reinicie el tablero tambien se reinicie la puntuación
-let abajo = document.getElementById('abajo');
+const abajo = document.getElementById('abajo');
 let izquierda = document.getElementById('izquierda');
 let derecha = document.getElementById('derecha');
+
 /* 
 Dificultad, hacer caer las piezas cada determinada cantidad de tiempo,
 simulando una especie de gravedad, esto se hace fácilmente con un setInterval
@@ -97,16 +98,14 @@ function keyEventsTetris() {//Se crea una función para mover el tetrimino con e
         tetrimino.ponerEnElFondo()//Se llama a la función poner en el fondo el tetrimino para que el tetrimino automaticamente al oprimir esta letra se ponga en la ultima posición del tablero hacia abajo
         regulador_de_caida = millis()//Se trae la variable reguladora de la ida del tetrimino y se iguala a millis para que cuando la ficha caiga al fondo del tablero se detenga la caida por un momento para mejorar la jugabilidad del juego
     }
-    if(abajo.addEventListener){
-        abajo.addEventListener('onclick', moverAbajo(), false)
-        regulador_de_caida = millis()
-    }
-    if(izquierda.addEventListener){
-        izquierda.addEventListener('onclick', moverIzquierda(), false)
-        regulador_de_caida = millis()
-    }
-    if(derecha.addEventListener){
-        derecha.addEventListener('onclick', moverDerecha(), false)
-        regulador_de_caida = mills()
-    }
+    
 }
+
+abajo.addEventListener("clic", (e) =>{
+    tetrimino.moverAbajo()
+});
+
+startButton.addEventListener("clic", () => { 
+    actualizar(); 
+    startButton.style.display = "ninguno"; 
+  });

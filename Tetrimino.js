@@ -112,119 +112,118 @@ class Tetrimino {//Se define la clase para representar los teriminos de manera a
   }
 
   /* 
-     Esta función se encargará del procesamiento lógico del dibujado de
-     este objeto
-     */
-  dibujar() {
-    push();
-    fill(this.color);
-    for (const pmino of this.mapaCanvas) {
-      Tetrimino.dibujarMino(pmino);
+    Esta función se encargará del procesamiento lógico del dibujado del tetrimino
+  */
+    dibujar() {
+      push();  //Guarda la configuración y las transformaciones del estilo del dibujo actual
+      fill(this.color); //Nos permite adjudicarle al tetrimino el color dado en el mapeo del mismo
+      for (const pmino of this.mapaCanvas) {
+        Tetrimino.dibujarMino(pmino);
+      }
+      pop();
+      if (tetrimino == this) { //Si esta tetrimino es igual al tetrimino del juego
+        this.dibujarEspectro(); //entonces dibujara el espectro
+      }
     }
-    pop();
-    if (tetrimino == this) {
-      this.dibujarEspectro();
+  //Función que genera el espectro del tetrimino
+    dibujarEspectro() {
+      this.espectro = new Tetrimino(this.nombre); //Indicamos que el espectro sera a un nuevo tetrimino
+      this.espectro.posición = this.posición.copy() //indicamos que el espectro se mueva con el otro haciendo una copia
+      for (let i = 0; i < this.mapa.length; i++) { //Se crea un for para indicar qu, elimina el error de giro del tetrimino para el espectroe el espectro se mueva con la posicion de i en el mapa sobre la copia, elimina el error de giro del tetrimino para el espectro
+        this.espectro.mapa[i] = this.mapa[i].copy()
+      }
+      while (this.espectro.moverAbajo()); //Bucle que permite indicar que el espectro se ubica abajo del tablero
+      push()
+      drawingContext.globalAlpha = 0.3 //Varible de p5 que da la transparencia al espectro
+      this.espectro.dibujar();//Dibuja el espectro del tetrimino
+      pop()
+    }
+   //Funcion que da estilo al tetrimino recibe un mino
+    static dibujarMino(pmino) {
+      rect(pmino.x, pmino.y, tablero.lado_celda); //Se crea un nuevo cuadrado dado al lado del tablero dentro del tetrimino
+      push();//Guarda la nueva configuración del dibujo
+      noStroke();//Indica que el rectangulo creado no tenga borde
+      fill(255, 255, 255, 80); //Se definen los colores del relleno del brillo
+      beginShape(); //Inicio de brillo dando coordenadas en x y y
+      vertex(pmino.x, pmino.y); 
+      vertex(pmino.x + tablero.lado_celda, pmino.y);
+      vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
+      endShape(CLOSE); //Cierre del brillo generado dando un brillo o sombra en forma diagonal en cada mino
+      beginShape();  //Inicio de la sombra dando coordenadas en x y y
+      fill(0, 0, 0, 80);  //Se definen los colores del relleno de la sombra
+      vertex(pmino.x, pmino.y);
+      vertex(pmino.x, pmino.y + tablero.lado_celda);
+      vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
+      endShape(CLOSE); //Cierre de la sombra
+      pop();
     }
   }
-
-  dibujarEspectro() {
-    this.espectro = new Tetrimino(this.nombre);
-    this.espectro.posición = this.posición.copy()
-    for (let i = 0; i < this.mapa.length; i++) {
-      this.espectro.mapa[i] = this.mapa[i].copy()
-    }
-    while (this.espectro.moverAbajo());
-    push()
-    drawingContext.globalAlpha = 0.3
-    this.espectro.dibujar();
-    pop()
+  //Esta función es la encargada de almacenar los tetriminos con sus respectivas caracteristicas y coordenadas siendo el primer valor el que corresponde a la coordenada x y el segundo a la coordenada y
+  function crearMapeoBaseTetriminos() {
+    //Muy importante, no le pondan let, var, ni const de prefijo
+    tetriminosBase = {
+      Z: {
+        color: "red",
+        mapa: [
+          createVector(),
+          createVector(-1, -1),
+          createVector(0, -1),
+          createVector(1, 0),
+        ],
+      },
+      S: {
+        color: "lime",
+        mapa: [
+          createVector(),
+          createVector(1, -1),
+          createVector(0, -1),
+          createVector(-1, 0),
+        ],
+      },
+      J: {
+        color: "orange",
+        mapa: [
+          createVector(),
+          createVector(-1, 0),
+          createVector(-1, -1),
+          createVector(1, 0),
+        ],
+      },
+      L: {
+        color: "dodgerblue",
+        mapa: [
+          createVector(),
+          createVector(-1, 0),
+          createVector(1, -1),
+          createVector(1, 0),
+        ],
+      },
+      T: {
+        color: "magenta",
+        mapa: [
+          createVector(),
+          createVector(-1, 0),
+          createVector(1, 0),
+          createVector(0, -1),
+        ],
+      },
+      O: {
+        color: "yellow",
+        mapa: [
+          createVector(),
+          createVector(0, -1),
+          createVector(1, -1),
+          createVector(1, 0),
+        ],
+      },
+      I: {
+        color: "cyan",
+        mapa: [
+          createVector(),
+          createVector(-1, 0),
+          createVector(1, 0),
+          createVector(2, 0),
+        ],
+      },
+    };
   }
-
-  static dibujarMino(pmino) {
-    rect(pmino.x, pmino.y, tablero.lado_celda);
-    // push();
-    // noStroke();
-    // fill(255, 255, 255, 80);
-    // beginShape();
-    // vertex(pmino.x, pmino.y);
-    // vertex(pmino.x + tablero.lado_celda, pmino.y);
-    // vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
-    // endShape(CLOSE);
-    // beginShape();
-    // fill(0, 0, 0, 80);
-    // vertex(pmino.x, pmino.y);
-    // vertex(pmino.x, pmino.y + tablero.lado_celda);
-    // vertex(pmino.x + tablero.lado_celda, pmino.y + tablero.lado_celda);
-    // endShape(CLOSE);
-    // pop();
-  }
-}
-
-function crearMapeoBaseTetriminos() {
-  //Muy importante, no le pondan let, var, ni const de prefijo
-  tetriminosBase = {
-    Z: {
-      color: "red",
-      mapa: [
-        createVector(),
-        createVector(-1, -1),
-        createVector(0, -1),
-        createVector(1, 0),
-      ],
-    },
-    S: {
-      color: "lime",
-      mapa: [
-        createVector(),
-        createVector(1, -1),
-        createVector(0, -1),
-        createVector(-1, 0),
-      ],
-    },
-    J: {
-      color: "orange",
-      mapa: [
-        createVector(),
-        createVector(-1, 0),
-        createVector(-1, -1),
-        createVector(1, 0),
-      ],
-    },
-    L: {
-      color: "dodgerblue",
-      mapa: [
-        createVector(),
-        createVector(-1, 0),
-        createVector(1, -1),
-        createVector(1, 0),
-      ],
-    },
-    T: {
-      color: "magenta",
-      mapa: [
-        createVector(),
-        createVector(-1, 0),
-        createVector(1, 0),
-        createVector(0, -1),
-      ],
-    },
-    O: {
-      color: "yellow",
-      mapa: [
-        createVector(),
-        createVector(0, -1),
-        createVector(1, -1),
-        createVector(1, 0),
-      ],
-    },
-    I: {
-      color: "cyan",
-      mapa: [
-        createVector(),
-        createVector(-1, 0),
-        createVector(1, 0),
-        createVector(2, 0),
-      ],
-    },
-  };
-}
