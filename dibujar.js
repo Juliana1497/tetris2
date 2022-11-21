@@ -9,6 +9,7 @@ var KEY_ENTER=13;//Se crea la variable para definir la tecla enter
 var lastPress=null;//Se crea una variable para definir  lo que pasa despues presionar la tecla
 var pressing=[];//Se crea un array vacio para poder definir despues lo que pasa al presionar la tecla
 var pause=false;//Se crea una variable para definir que el juego no empezara en pausa
+
 /* 
 Dificultad, hacer caer las piezas cada determinada cantidad de tiempo,
 simulando una especie de gravedad, esto se hace fácilmente con un setInterval
@@ -61,6 +62,7 @@ y sirve para dar instrucciones precisas de dibujo sobre el canvas
 function draw() {
     clear()//para que el margen del tablero se vea transparente
     dibuajarPuntaje()// Se llama a la función donde se dibujara el puntaje del juego
+    dibujarPausa()
     tablero.dibujar() //Se indica dibujar el tablero con el metodo dibujar
     tetrimino.dibujar()//Se indica dibujar el tetrimino con el metodo dibujar
     keyEventsTetris()//Se llama la función para darle funcionalidad a las teclas del teclado
@@ -76,6 +78,19 @@ function dibuajarPuntaje() {//Se crea la función para progrmar el puntaje obten
         tablero.posición.y - tablero.lado_celda / 2//Se ubica el puntaje encima del tablero en la esquina superior izquierda
     )
     pop()//Restaura el estado de grafico.Se elimina el numero del contador para que cuando el tablero se reinicie se elimine el ultimo numero de puntaje que haya echo el jugador
+}
+function dibujarPausa() {//Se crea la función para progrmar el puntaje obtenido en el juego
+    if(pause){
+    push()//Guarda estados graficos. Añade los elementos del contador, es decir los numeros y devuelve el numevo numero que se va sumando a medida que se va puntuando
+    textSize(20)//Se define el tamaño de la letra
+    fill("red")//Se define el color de la letra como negro
+    text(//El puntaje sera dado por la palabra Lineas: más las lineas que va completando el jugador
+        "¡PAUSA!",
+        tablero.posición.y +250,
+        tablero.posición.x +tablero.lado_celda/2//Se ubica el puntaje encima del tablero en la esquina superior izquierda
+    )
+    pop()//Restaura el estado de grafico.Se elimina el numero del contador para que cuando el tablero se reinicie se elimine el ultimo numero de puntaje que haya echo el jugador
+}
 }
 
 let límite_regulador_velocidad_teclas = 100//Se determina el limite de velocidad en el que se movera la figura al oprimir una tecla
