@@ -1,7 +1,10 @@
-Pagina web del clasico juego tetris.
+Pagina web colaborativa del clasico juego tetris.
 
 Tecnologias y recursos utilizados: HTML, CSS, JavaScript, Figma, VisualStudioCode
 
 Link del depliegue: https://juliana1497.github.io/tetris2/
 
-![game2](https://user-images.githubusercontent.com/112361979/221281702-5fe6e34b-5c26-49e9-bff3-69680299218f.png)
+
+![Captura de pantalla 2023-02-24 151818](https://user-images.githubusercontent.com/112361979/221282691-59de779d-be13-4ca7-82c8-3210a0ee276f.png)
+
+
